@@ -15,7 +15,7 @@ public class PropertiesModel {
 	public void showAllKeyValue() {
 		states = properties.keySet();
 		Iterator itr = states.iterator();
-	      while(itr.hasNext()) {
+	      while (itr.hasNext()) {
 	        String key  = (String) itr.next();
 		String value= properties.getProperty(key);
 	        System.out.println("Key " +

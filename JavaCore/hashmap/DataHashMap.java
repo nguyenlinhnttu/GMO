@@ -26,9 +26,9 @@ public class DataHashMap {
 	// Kiểm tra value có tồn tại hay không
 	public void checkValue(String value) {
 		boolean checkValue= hashMap.containsValue(value);
-		if(checkValue==true){
+		if (checkValue==true) {
 			System.out.println(value + " Tồn tại");
-		}else{
+		} else {
 			System.out.println(value + " Không Tồn tại");
 		}			
 	}

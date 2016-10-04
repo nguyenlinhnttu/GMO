@@ -26,7 +26,7 @@ public class MainSerializable {
 	}
 
 	//Hàm SerialObject ghi đối tượng tới tập tin
-	public static void SerialObject(Object obj) throws Exception{
+	public static void SerialObject(Object obj) throws Exception {
        		 //Tạo luồng ghi vào file OUTPUT_FILE
         	FileOutputStream fs=new FileOutputStream(OUTPUT_FILE);
         	//Tạo luồng để serial đối tượng
@@ -39,7 +39,7 @@ public class MainSerializable {
     	}
 
   	// Lấy dữ liệu đã ghi lên objects
-	 public static Object DeserialObject() throws Exception{
+	 public static Object DeserialObject() throws Exception {
 	        Object sinhVien=null;
 	        //Tạo luồng đọc file đã được serial
 	        FileInputStream fi=new FileInputStream(OUTPUT_FILE);

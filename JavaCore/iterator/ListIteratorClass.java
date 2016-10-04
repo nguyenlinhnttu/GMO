@@ -19,9 +19,9 @@ public class ListIteratorClass {
 		ListIterator<String> listIterator= arrayList.listIterator();
 		while (listIterator.hasNext()) {
 			String value =listIterator.next();
-			if(value.equals("Linh")){
+			if (value.equals("Linh")) {
 				listIterator.set("Nguyễn Văn Linh");
-			}else if(value.equals("Kim")){
+			} else if(value.equals("Kim")) {
 				listIterator.set("Dư Ngọc Kim");
 			}
 		}

@@ -26,8 +26,7 @@ public class FileOutputStreamModel {
 				outWriter.write(content); // ghi vào file
 				outWriter.newLine();
 				outWriter.write("Nguyễn Văn Linh");	
-		}
-		catch(IOException e){
+		} catch(IOException e) {
 			 e.printStackTrace();
 		}
 	}

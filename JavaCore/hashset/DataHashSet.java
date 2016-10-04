@@ -21,9 +21,9 @@ public class DataHashSet {
 	//Kiểm tra có rỗng hay không
 	public void checkHashEmpty() {
 		boolean isEmpty= hashSet.isEmpty();
-		if(isEmpty==true){
+		if (isEmpty==true) {
 			System.out.println("HashSet Rỗng!");
-		}else {
+		} else {
 			System.out.println("HashSet có phần tử!");
 		}
 	}
@@ -31,9 +31,9 @@ public class DataHashSet {
 	// Xóa một item trong hash
 	public void removeItem(String giaTri) {
 		boolean isRemove= hashSet.remove(giaTri);
-		if(isRemove==true){
+		if (isRemove==true) {
 			System.out.println("Đã xóa phần tử: "+ giaTri);
-		}else {
+		} else {
 			System.out.println("Không có phần tử này trong Hash!");
 		}
 	}
@@ -41,10 +41,9 @@ public class DataHashSet {
 	// Kiểm tra item có tồn tại trong hash hay không
 	public void containsItem(String giaTri) {
 		boolean isContain =hashSet.contains(giaTri);
-		if(isContain==true){
+		if (isContain==true) {
 			System.out.println(giaTri+" Tồn tại!");
-		}
-		else {
+		} else {
 			System.out.println("Gía trị này không tồn tại trong hash.");
 		}
 	}

@@ -6,7 +6,7 @@ public  class DataArrayList {
 	static ArrayList<String> arrayList= new ArrayList<>();
 	
 	// Thêm dữ liệu vào list
-	public  void addItem(){
+	public  void addItem() {
 		arrayList.add("Phần tử thứ 1!");
 		arrayList.add("Phần tử thứ 2!");
 		arrayList.add("Phần tử thứ 3!");
@@ -49,17 +49,17 @@ public  class DataArrayList {
 	}
 	
 	// Kiểm tra giá trị
-	public  void containsItems(String giaTri){
+	public  void containsItems(String giaTri) {
 		boolean check= arrayList.contains(giaTri);
-		if(check==true){
+		if (check==true) {
 			System.out.println(giaTri + " đã tồn tại trong list! ");
-		}else {
+		} else {
 			System.out.println(giaTri + " không tồn tại trong list! ");
 		}
 	}
 
 	// Clone ArrayList
-	public  void cloneList(){
+	public  void cloneList() {
 		Object cloneList=  arrayList.clone(); 
 		System.out.println("- List được clone: " +cloneList);
 	}

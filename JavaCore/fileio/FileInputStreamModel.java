@@ -19,7 +19,7 @@ public class FileInputStreamModel {
 	         while ((c = in.read()) != -1) {
 	            out.write(c);
 	         }
-	      }finally {
+	      } finally {
 	         if (in != null) {
 	            in.close();
 	         }
