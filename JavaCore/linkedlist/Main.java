@@ -4,7 +4,7 @@ public class Main {
 	public static void main(String[] args) {
 	
 	DataLinked dataLinked= new DataLinked();
-	//Gọi các method
+	//Gọi các method đã tạo
 	dataLinked.addItem();
 	dataLinked.showList();
 	dataLinked.addFirstItem("FistName");
