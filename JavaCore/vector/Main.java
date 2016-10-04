@@ -1,4 +1,4 @@
-package vector;
+﻿package vector;
 
 public class Main {
 
@@ -12,5 +12,4 @@ public class Main {
 		dataVector.converToString();
 		dataVector.deteteAllIteam();
 	}
-
 }

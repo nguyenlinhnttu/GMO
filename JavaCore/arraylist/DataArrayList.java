@@ -1,4 +1,4 @@
-package arraylist;
+﻿package arraylist;
 
 import java.util.ArrayList;
 
@@ -30,8 +30,7 @@ public  class DataArrayList {
 		boolean  checkEmpty= arrayList.isEmpty();
 		if(checkEmpty==false){
 			System.out.println("- List có phần tử!");
-		}
-		else {
+		}else {
 			System.out.println("- List Empty!");
 		}		
 	}
@@ -54,20 +53,20 @@ public  class DataArrayList {
 		boolean check= arrayList.contains(giaTri);
 		if(check==true){
 			System.out.println(giaTri + " đã tồn tại trong list! ");
-		}
-		else {
+		}else {
 			System.out.println(giaTri + " không tồn tại trong list! ");
 		}
 	}
+
 	// Clone ArrayList
 	public  void cloneList(){
 		Object cloneList=  arrayList.clone(); 
 		System.out.println("- List được clone: " +cloneList);
 	}
+
 	//Xóa một phần tử trong list
 	public void removeItem(int pos) {
 		arrayList.remove(pos);
 		System.out.println("- List sau khi xóa : " +arrayList);
-	}
-		
+	}		
 }

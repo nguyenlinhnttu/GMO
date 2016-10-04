@@ -1,4 +1,4 @@
-package fileio;
+﻿package fileio;
 
 import java.io.PrintWriter;
 import java.util.Date;
@@ -11,7 +11,6 @@ public class PrintWriterExample {
 	      String address= "Quận 12";
 	      String birthDay ="16/02/1995";
 	      try {
-
 	         // create  writer
 	         PrintWriter pw = new PrintWriter(System.out);
 
@@ -27,7 +26,5 @@ public class PrintWriterExample {
 	      } catch (Exception ex) {
 	         ex.printStackTrace();
 	      }
-		
 	}
-
 }

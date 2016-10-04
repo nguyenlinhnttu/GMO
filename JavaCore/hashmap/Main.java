@@ -1,4 +1,4 @@
-package hashmap;
+﻿package hashmap;
 
 public class Main {
 
@@ -11,5 +11,4 @@ public class Main {
 		dataHashMap.checkValue("Nguyễn Văn Linh");
 		dataHashMap.getHashCode();
 	}
-
 }

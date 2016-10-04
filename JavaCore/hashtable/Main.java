@@ -12,5 +12,4 @@ public class Main {
 		dataHashTable.cloneMap();
 		dataHashTable.deleteMap();
 	}
-
 }
