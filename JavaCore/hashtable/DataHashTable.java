@@ -1,4 +1,4 @@
-package hashtable;
+﻿package hashtable;
 import java.util.*;
 public class DataHashTable {
 	 Hashtable<Integer,String> hashtable = new Hashtable<>();
@@ -10,6 +10,7 @@ public class DataHashTable {
 		 hashtable.put(4, "Con Mèo");
 		 hashtable.put(5, "Con Chó");
 	}
+
 	// Hiển thị dữ liệu
 	 public void showHashTable() {
 		 Enumeration<Integer> enumeration= hashtable.keys();
@@ -17,9 +18,9 @@ public class DataHashTable {
 			Integer key = (Integer) enumeration.nextElement();
 			String value= hashtable.get(key);
 			System.out.println(key +" : " + value );
-			
 		}
 	}
+
 	 // Add dữ liệu theo key
 	 public void addValueWithKey(int key, String value) {
 		 hashtable.put(key, value);
@@ -31,17 +32,18 @@ public class DataHashTable {
 		String value= hashtable.get(key);
 		System.out.println("Gía trị tại key : " +key +" là " +value);
 	}
+
 	 //Clone map
 	 public void  cloneMap() {
 		 Object object= hashtable.clone();
 		 System.out.println("Map clone có dữ liệu là: "+ object);
 		
 	}
+
 	 //Xóa dữ liệu trong map
 	 public void deleteMap() {
 		hashtable.clear();
 		System.out.println("Xóa dữ liệu trong Map ");
 		showHashTable();
-	}
-	
+	}	
 }

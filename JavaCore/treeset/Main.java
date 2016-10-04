@@ -1,10 +1,11 @@
-package treeset;
+﻿package treeset;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		DataTreeSet dataTreeSet = new DataTreeSet();
+		//Gọi các method của đối tương
 		dataTreeSet.addItems();
 		dataTreeSet.showItems();
 		dataTreeSet.getFirstItem();
@@ -13,5 +14,4 @@ public class Main {
 		dataTreeSet.sortedSet(3,6); 
 		dataTreeSet.tailSet(5);
 	}
-
 }

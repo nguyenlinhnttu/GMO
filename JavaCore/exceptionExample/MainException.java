@@ -1,4 +1,4 @@
-package exceptionExample;
+﻿package exceptionExample;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +17,7 @@ public class MainException {
 		//file not founds
 		readfile();
 	}
-	
+	//Hàm đọc file
 	public static void readfile(){
 		BufferedReader rd = null;
 		try {
@@ -41,5 +41,4 @@ public class MainException {
 			}
 		}
 	}
-
 }

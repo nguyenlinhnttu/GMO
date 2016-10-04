@@ -1,4 +1,4 @@
-package serialization;
+﻿package serialization;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -24,18 +24,21 @@ public class MainSerializable {
 		System.out.println(sinhVien.getHoTen());
 		System.out.println(sinhVien.getDiaChi());
 	}
+
+	//Hàm SerialObject ghi đối tượng tới tập tin
 	public static void SerialObject(Object obj) throws Exception{
-        //Tạo luồng ghi vào file OUTPUT_FILE
-        FileOutputStream fs=new FileOutputStream(OUTPUT_FILE);
-        //Tạo luồng để serial đối tượng
-        ObjectOutputStream os=new ObjectOutputStream(fs);
-        //chuyển tải đối tượng tới đích (tập tin)
-        os.writeObject(obj);
-        //đóng luồng
-        fs.close();
-        os.close();
-    }
-	// Lấy dữ liệu đã ghi lên objects
+       		 //Tạo luồng ghi vào file OUTPUT_FILE
+        	FileOutputStream fs=new FileOutputStream(OUTPUT_FILE);
+        	//Tạo luồng để serial đối tượng
+        	ObjectOutputStream os=new ObjectOutputStream(fs);
+        	//chuyển tải đối tượng tới đích (tập tin)
+        	os.writeObject(obj);
+        	//đóng luồng
+        	fs.close();
+        	os.close();
+    	}
+
+  	// Lấy dữ liệu đã ghi lên objects
 	 public static Object DeserialObject() throws Exception{
 	        Object sinhVien=null;
 	        //Tạo luồng đọc file đã được serial

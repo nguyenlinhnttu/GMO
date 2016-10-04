@@ -1,4 +1,4 @@
-package fileio;
+﻿package fileio;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +8,7 @@ public class FileExample {
 	private static final String FILE_PATH="C:\\Users\\LynkMieu\\Downloads\\fileExample.txt";
 	private static File file;
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		//Gọi hàm tạo file và hiển thông tin của file
 		createFile(FILE_PATH);
 		getInfoFile();
 	}
@@ -22,6 +22,7 @@ public class FileExample {
 			e.printStackTrace();
 		}
 	}
+	//Lấy thông tin file
 	public static void getInfoFile() {
 		
 		 System.out.println(file.getAbsolutePath());

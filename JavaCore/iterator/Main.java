@@ -1,10 +1,9 @@
-package iterator;
+﻿package iterator;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+		//Sử dụng Iterator
 		IteratorClass iterator= new IteratorClass();
 		iterator.addItems();
 		iterator.showList();
@@ -15,5 +14,4 @@ public class Main {
 		listIterator.changeWithListIterator();
 		listIterator.showList();
 	}
-
 }
