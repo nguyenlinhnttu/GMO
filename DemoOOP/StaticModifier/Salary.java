@@ -7,7 +7,6 @@ class Salary {
 	}
 	public int tangLuong(int tienLuong) {
 		return tongLuong += tienLuong;
-		
 	}
 }
 

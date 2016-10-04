@@ -2,13 +2,13 @@ package TinhDaHinh;
 
 class XeMay {
 	
-	public void  tocDo(int km ){
-		System.out.println("Tốc độ di chuyển Xe Máy là: "+ km);
+	public void  tangTocDo(int km ){
+		System.out.println("Tốc độ di chuyển của xe máy là : "+ km);
 	}
-	public void  tocDo(int km, String duongDi ){
-		System.out.println("Tốc độ di chuyển Xe Máy là: "+ km );
+	public void  tangTocDo(int km, String duongDi ){
+		System.out.println("Tốc độ di chuyển của xe máy là : "+ km );
 	}
-	public void  tocDo(String luuY){
+	public void  tangTocDo(String luuY){
 		System.out.println( luuY);
 	}
 }

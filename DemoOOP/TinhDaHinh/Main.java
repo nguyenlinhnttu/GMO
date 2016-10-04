@@ -2,11 +2,11 @@ package TinhDaHinh;
 
 public class Main {
 	public static void main(String[] args) {
-		// Tính đa hình	
+		// Tính Đa Hình
 		XeMay xemay= new XeMay();
-		xemay.tocDo(50);
-		xemay.tocDo(80,"Tốc độ bàn thờ!");
-		xemay.tocDo("Chạy chậm thôi tạch bây giờ!");
-		
+		// Hàm với 1 tham số
+		xemay.tangTocDo(50); 
+		// Hàm với 2 tham số
+		xemay.tangTocDo(80,"Chạy quá tốc độ!"); 
 	}
 }

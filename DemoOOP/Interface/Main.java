@@ -7,5 +7,4 @@ public class Main {
 		Butterfly butterfly= new Butterfly();
 		butterfly.fly();
 	}
-
 }

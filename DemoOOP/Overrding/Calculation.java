@@ -1,8 +1,9 @@
 package Overrding;
 
 class Calculation{  
-	void sum(int a, int b){
-		System.out.println(a+b);
+	//Tính tổng
+	void sum(int giaTri1, int giaTri2){
+		int tong= giaTri1 +giaTri2;
+		System.out.println(tong);
 	}
-	
 }

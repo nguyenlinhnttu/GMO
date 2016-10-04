@@ -15,7 +15,7 @@ class People{
 		this.diachi=diaChi;
 	}
 	public void tapDi(int soBuoc){
-		System.out.println("Vừa tập đi được "+ soBuoc +" bước!");
+		System.out.println("Đi được "+ soBuoc +" bước!");
 	}
 	public String getDiachi() {
 		return diachi;

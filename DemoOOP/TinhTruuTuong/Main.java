@@ -4,11 +4,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		// Tính trừu tượng
-		  Salary s = new Salary("Nguyễn Văn Linh", "Quận 12",10, 3600);
-		  s.mailCheck();
-	      Employee e = new Salary("Dư Ngọc Kim", "Quận 12", 10, 2400);
-	      e.mailCheck();
+		// Tính Trừu tượng
+		  Salary salary = new Salary("Nguyễn Văn Linh", "Quận 12",10, 3600);
+		  salary.mailCheck();
+	      Employee emp = new Salary("Dư Ngọc Kim", "Quận 12", 10, 2400);
+	      salary.mailCheck();
 	}
-
 }

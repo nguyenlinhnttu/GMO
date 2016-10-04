@@ -7,5 +7,4 @@ class Butterfly implements ICanFly {
 		// TODO Auto-generated method stub
 		System.out.println("Tôi có thể bay!");
 	}
-
 }

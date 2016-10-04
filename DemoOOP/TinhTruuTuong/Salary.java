@@ -11,7 +11,7 @@ class Salary extends Employee
    public void mailCheck()
    {
        System.out.println("Gửi mail tới  " + getName()
-       + " salary là: " + salary);
+       + " salary là : " + salary);
    }
 	public double getSalary() {
 		return salary;
