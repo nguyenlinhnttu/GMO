@@ -1,4 +1,4 @@
-package hashset;
+﻿package hashset;
 
 public class Main {
 
@@ -12,7 +12,5 @@ public class Main {
 		dataHashSet.removeItem("Kim");
 		System.out.println("HashSet hiện tại là:");
 		dataHashSet.showHashSet();
-		
 	}
-
 }

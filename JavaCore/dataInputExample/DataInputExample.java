@@ -1,12 +1,12 @@
-package dataInputExample;
+﻿package dataInputExample;
 import java.io.*;
 public class DataInputExample {
 	private static final String OUTPUT_FILE =
 			"C:/Users/LynkMieu/Downloads/Data.txt";
 
 	public static void main(String[] args) {
-		  int n=10;
-		  long a[]={1000,1111,2222,3333};
+		  int n = 10;
+		  long[] a = {1000,1111,2222,3333};
 		  String hello ="Hello, My name is Linh!";
 		 // Ghi dữ liệu xuống file Text
 		 try {
@@ -25,5 +25,4 @@ public class DataInputExample {
 			System.out.println("Lỗi: "+e);
 		}
 	}
-
 }

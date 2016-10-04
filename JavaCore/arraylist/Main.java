@@ -1,4 +1,4 @@
-package arraylist;
+﻿package arraylist;
 
 public class Main {
 	
@@ -16,8 +16,4 @@ public class Main {
 	data.cloneList();
 	data.removeItem(1);
 	}
-	
-	
-	
-
 }
