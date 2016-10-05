@@ -7,26 +7,27 @@ import java.io.ObjectOutputStream;
 
 public class MainSerializable {
 	private static final String OUTPUT_FILE =
-			"C:/Users/LynkMieu/Downloads/Data.txt";
+			"C:/Users/MyPC/Downloads/input.txt";
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		SinhVien sinhVien= new SinhVien();
 	
 		// Ghi dữ liệu xuống file
-//		sinhVien.setMaSV(1311519597);
-//		sinhVien.setHoTen("Nguyễn Văn Linh");
-//		sinhVien.setDiaChi("Quận 12");
-//		sinhVien.setMaLop("13DTH02");
-//		SerialObject(sinhVien);
+		sinhVien.setMaSV(1311519597);
+		sinhVien.setHoTen("Nguyễn Văn Linh");
+		sinhVien.setDiaChi("Quận 12");
+		sinhVien.setMaLop("13DTH02");
+		SerialObject(sinhVien);
 	
 		// Đọc dữ liệu đã ghi đưa lên object
 		sinhVien=(SinhVien) DeserialObject();
 		System.out.println(sinhVien.getHoTen());
 		System.out.println(sinhVien.getDiaChi());
+		System.out.println(sinhVien.getMaLop());
 	}
 
 	//Hàm SerialObject ghi đối tượng tới tập tin
-	public static void SerialObject(Object obj) throws Exception{
+	public static void SerialObject(Object obj) throws Exception {
        		 //Tạo luồng ghi vào file OUTPUT_FILE
         	FileOutputStream fs=new FileOutputStream(OUTPUT_FILE);
         	//Tạo luồng để serial đối tượng
@@ -39,7 +40,7 @@ public class MainSerializable {
     	}
 
   	// Lấy dữ liệu đã ghi lên objects
-	 public static Object DeserialObject() throws Exception{
+	 public static Object DeserialObject() throws Exception {
 	        Object sinhVien=null;
 	        //Tạo luồng đọc file đã được serial
 	        FileInputStream fi=new FileInputStream(OUTPUT_FILE);

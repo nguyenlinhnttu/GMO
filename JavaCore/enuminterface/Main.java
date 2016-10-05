@@ -21,7 +21,12 @@ public class Main {
 
 	      //Duyệt và hiển thị các phần tử
 	      while (days.hasMoreElements()){
-	         System.out.println(days.nextElement()); 
+	        String day = days.nextElement(); 
+	         if (day.equals("Sunday")) {
+	             System.out.println("Ngày Cuối tuần ! ");
+	         } else {
+	             System.out.println(day);
+	         }
 	      }
 	}
 }

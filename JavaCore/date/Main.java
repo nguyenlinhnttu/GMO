@@ -12,7 +12,13 @@ public static void main(String[] args) throws ParseException {
 		dateMethod.getDateCurent();
 		
 		//So sánh 2 ngày, convert cùng định dạng để so sánh
-		String myDate= "30/09/2016";
+		String myDate= "30/7/2016";
 		dateMethod.compareDate(myDate); 	// gọi hàm so sánh
+		
+		//Kiểm tra ngày nhập vào lớn hơn hay nhỏ hơn ngày hiện tại
+		dateMethod.dateBefore(myDate);
+		
+		//Trả về số giây đã trôi qua
+		dateMethod.getMilitime();
 	}
 }

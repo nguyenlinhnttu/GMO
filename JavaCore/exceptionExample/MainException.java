@@ -6,15 +6,18 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class MainException {
-	private static final String filename = "onput.txt";
+	private static final String filename = "output.txt";
 	public static void main(String[] args) throws IOException {
-//		//NullPointerException 
-//		String s=null;  
-//		System.out.println(s.length());
-//		//NumberFormatException  
-//		String a="abc";  
-//		int i=Integer.parseInt(a);
-		//file not founds
+		
+	    //NullPointerException 
+	    String s=null;  
+    	System.out.println(s.length());
+    	
+    	//NumberFormatException  
+    	String a="abc";  
+    	int i=Integer.parseInt(a);
+		
+	    //file not founds
 		readfile();
 	}
 	//Hàm đọc file

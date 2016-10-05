@@ -28,7 +28,7 @@ public class DataVector {
 	//Xóa phần tử theo object
 	public void removeItem(String obj) {
 		boolean isRemove= vector.remove(obj);
-		if(isRemove==true){
+		if (isRemove==true) {
 			System.out.println("-Đã xóa phần tử: "+ obj);
 		}
 	}

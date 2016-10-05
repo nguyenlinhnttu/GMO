@@ -10,5 +10,7 @@ public class Main {
 		dataHashMap.getValue(2);
 		dataHashMap.checkValue("Nguyễn Văn Linh");
 		dataHashMap.getHashCode();
+		dataHashMap.getAllKey();
+		dataHashMap.getLenghtHash();
 	}
 }

@@ -1,31 +1,45 @@
 ﻿package calendar;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class MainCalendar {
 
 	public static void main(String[] args) {
 
-	      // Tạo một đối tượng Lịch mặc định.
-	      Calendar c = Calendar.getInstance();
-	      int year = c.get(Calendar.YEAR);
+	       // Tạo một đối tượng Lịch mặc định.
+	      SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy:mm:ss");
+	      Calendar calendar = new GregorianCalendar();
+	    
+	      System.out.println(sdf.format(calendar.getTime()));
 	      
-	      // Trả về giá trị từ 0 - 11
-	      int month = c.get(Calendar.MONTH);
-	      int day = c.get(Calendar.DAY_OF_MONTH);
-	      int hour = c.get(Calendar.HOUR_OF_DAY);
-	      int minute = c.get(Calendar.MINUTE);
-	      int second = c.get(Calendar.SECOND);
-	      int millis = c.get(Calendar.MILLISECOND);
-	      
-	       // Hiển thị dữ liệu
-	      System.out.println("Year: " + year);
-	      System.out.println("Month: " + (month+1));
-	      System.out.println("Day: " + day);
-	      System.out.println("Hour: " + hour);
-	      System.out.println("Minute: " + minute);
-	      System.out.println("Second: " + second);
-	      System.out.println("Minute: " + minute);
-	      System.out.println("Milli Second: " + millis);
+	      int year       = calendar.get(Calendar.YEAR);
+	      int month      = calendar.get(Calendar.MONTH); // Jan = 0, dec = 11
+	      int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+	      int dayOfWeek  = calendar.get(Calendar.DAY_OF_WEEK);
+	      int weekOfYear = calendar.get(Calendar.WEEK_OF_YEAR);
+	      int weekOfMonth= calendar.get(Calendar.WEEK_OF_MONTH);
+
+	      int hour       = calendar.get(Calendar.HOUR);        // 12 hour clock
+	      int hourOfDay  = calendar.get(Calendar.HOUR_OF_DAY); // 24 hour clock
+	      int minute     = calendar.get(Calendar.MINUTE);
+	      int second     = calendar.get(Calendar.SECOND);
+	      int millisecond= calendar.get(Calendar.MILLISECOND);
+	      System.out.println("year \t\t: " + year);
+	      System.out.println("month \t\t: " + month);
+	      System.out.println("dayOfMonth \t: " + dayOfMonth);
+	      System.out.println("dayOfWeek \t: " + dayOfWeek);
+	      System.out.println("weekOfYear \t: " + weekOfYear);
+	      System.out.println("weekOfMonth \t: " + weekOfMonth);
+
+	      System.out.println("hour \t\t: " + hour);
+	      System.out.println("hourOfDay \t: " + hourOfDay);
+	      System.out.println("minute \t\t: " + minute);
+	      System.out.println("second \t\t: " + second);
+	      System.out.println("millisecond \t: " + millisecond);
+	     
+	 
 	}
+	
 }
