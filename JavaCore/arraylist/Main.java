@@ -16,5 +16,6 @@ public class Main {
 	data.cloneList();      //Clone một List
 	data.removeItem(1);    //Xóa phần tử đầu tiên
 	data.listIterator();   //Sử dụng ListIterator để duyệt
+
 	}
 }
