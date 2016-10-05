@@ -27,6 +27,7 @@ public class DataHashTable {
 		 System.out.println("Dữ liệu mới sau khi add là: ");
 		 showHashTable();
 	}
+	 
 	 //get value with key
 	 public void getValueWithKey(int key) {
 		String value= hashtable.get(key);
@@ -39,7 +40,17 @@ public class DataHashTable {
 		 System.out.println("Map clone có dữ liệu là: "+ object);
 		
 	}
-
+	 
+	 //Kiểm tra key có tồn tại trong hashtable hay không
+	 public void containsKey(int key) {
+        boolean isContain = hashtable.containsKey(key);
+        if(isContain==true){
+            System.out.println("Tồn tại");
+        } else {
+            System.out.println("Ko Tồn tại");
+        }
+    }
+	 
 	 //Xóa dữ liệu trong map
 	 public void deleteMap() {
 		hashtable.clear();

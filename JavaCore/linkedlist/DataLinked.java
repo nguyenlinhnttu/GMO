@@ -35,4 +35,12 @@ public class DataLinked {
 		System.out.println("Vị trí thứ: "+pos +" thay đổi thành: "+ linkedList.get(pos));
 	}
 	
+	//Dùng Iterator để duyệt
+	public void listIterator() {
+        ListIterator<String> iterator= linkedList.listIterator();
+        while (iterator.hasNext()) {
+          System.out.println(iterator.next());
+        }
+    }
+	
 }

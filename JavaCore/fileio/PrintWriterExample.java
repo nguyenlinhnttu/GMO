@@ -17,10 +17,10 @@ public class PrintWriterExample {
 	         pw.println(name);
 	         pw.append("Địa chỉ ");
 	         pw.println(address);
-
+	         pw.checkError();
 	         pw.print(birthDay);
 
-	         // flush  writer
+	         // Đẩy dữ liệu
 	         pw.flush();
 
 	      } catch (Exception ex) {

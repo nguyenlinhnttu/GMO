@@ -1,7 +1,6 @@
 ﻿package iterator;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.ListIterator;
 
 public class ListIteratorClass {
@@ -19,9 +18,10 @@ public class ListIteratorClass {
 		ListIterator<String> listIterator= arrayList.listIterator();
 		while (listIterator.hasNext()) {
 			String value =listIterator.next();
-			if(value.equals("Linh")){
+			if (value.equals("Linh")) {
 				listIterator.set("Nguyễn Văn Linh");
-			}else if(value.equals("Kim")){
+				//listIterator.remove(); Hàm này dùng để xóa phần tử hiện tại
+			} else if(value.equals("Kim")) {
 				listIterator.set("Dư Ngọc Kim");
 			}
 		}

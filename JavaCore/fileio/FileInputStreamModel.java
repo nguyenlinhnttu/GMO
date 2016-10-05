@@ -1,30 +1,26 @@
-﻿import java.io.FileInputStream;
+﻿package fileio;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 
 public class FileInputStreamModel {
 	private static final String FILE_INPUT="C:/Users/MyPC/Downloads/input.txt";
-	private static final String FILE_OUTPUT="C:/Users/MyPC/Downloads/output.txt";
 
 	public static void main(String[] args) throws IOException{
 	      //Đọc và ghi dữ liệu sử dụng FileInputStream và FileOutputStream
 	      FileInputStream in = null;
-	      FileOutputStream out = null;
 
 	      try {
 	         in = new FileInputStream(FILE_INPUT); 
-	         out = new FileOutputStream(FILE_OUTPUT);
-	         //Đọc dữ liệu trong file input.txt và ghi dữ liệu đã đọc vào output.txt
-	         int c;
-	         while ((c = in.read()) != -1) {
-	            out.write(c);
+	         //Đọc dữ liệu trong file input.txt 
+	         int content;
+	         while ((content = in.read()) != -1) {
+	           System.out.print((char)content);
 	         }
-	      }finally {
+	      } finally {
 	         if (in != null) {
 	            in.close();
-	         }
-	         if (out != null) {
-	            out.close();
 	         }
 	      }
 	   }

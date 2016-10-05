@@ -6,25 +6,25 @@ import java.io.IOException;
 
 public class BufferedOutputStreamModel {
 	private static final String OUTPUT_FILE =
-			"C:/Users/LynkMieu/Downloads/filetest.txt";
+			"C:/Users/MyPC/Downloads/input.txt";
 
-	public static void main(String[] args) {
-		//Sử dụng BufferedOutputStream ghi dữ liệu xuống file
+	public static void main(String[] args) throws IOException {
+		
+	    //Sử dụng BufferedOutputStream ghi dữ liệu xuống file
+	    BufferedOutputStream stream = null;
 		try {
-			BufferedOutputStream stream = new BufferedOutputStream(
+			stream = new BufferedOutputStream(
 							new FileOutputStream(OUTPUT_FILE));
 			//Ghi dữ liệu
 			stream.write("Nguyễn Văn Linh".getBytes());
 			stream.write(System.lineSeparator().getBytes()); // Xuống hàng
 			stream.write("Dư Ngọc kim".getBytes());
+			stream.flush();  //Đẩy dữ liệu đảm bảo dữ liệu trên bộ nhớ đệm ko mất đi
 			
-			stream.close();
 		} catch (IOException ex) {
 			ex.printStackTrace();
-		}
-
-		//Gọi hàm đọc dữ liệu đã viết bên class FileInputStreamModel 
-		FileInputStreamModel fisModel= new FileInputStreamModel();
-		fisModel.readFile(OUTPUT_FILE);
+		} finally {
+		    stream.close();
+        }
 	}
 }
