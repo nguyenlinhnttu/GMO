@@ -3,8 +3,8 @@
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		DataHashSet dataHashSet= new DataHashSet();
+		//Call method
 		dataHashSet.addItems();
 		dataHashSet.showHashSet();
 		dataHashSet.checkHashEmpty();

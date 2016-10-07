@@ -3,9 +3,8 @@
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		DataTreeSet dataTreeSet = new DataTreeSet();
-		//Gọi các method của đối tương
+		//Call methos
 		dataTreeSet.addItems();
 		dataTreeSet.showItems();
 		dataTreeSet.getFirstItem();

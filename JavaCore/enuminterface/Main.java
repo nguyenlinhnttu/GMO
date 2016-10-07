@@ -6,20 +6,19 @@ import java.util.Vector;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 	      Enumeration<String> days;
-	      Vector<String> dayNames = new Vector<>();
-	      //Thêm dữ liệu
-	      dayNames.add("Sunday");
-	      dayNames.add("Monday");
-	      dayNames.add("Tuesday");
-	      dayNames.add("Wednesday");
-	      dayNames.add("Thursday");
-	      dayNames.add("Friday");
-	      dayNames.add("Saturday");
-	      days = dayNames.elements();
+	      Vector<String> dayVector = new Vector<>();
+	      //add data
+	      dayVector.add("Sunday");
+	      dayVector.add("Monday");
+	      dayVector.add("Tuesday");
+	      dayVector.add("Wednesday");
+	      dayVector.add("Thursday");
+	      dayVector.add("Friday");
+	      dayVector.add("Saturday");
+	      days = dayVector.elements();
 
-	      //Duyệt và hiển thị các phần tử
+	      // Show all data
 	      while (days.hasMoreElements()){
 	        String day = days.nextElement(); 
 	         if (day.equals("Sunday")) {
