@@ -8,17 +8,17 @@ import java.util.Set;
 public class LinkedHashSetExample {
 
 	public static void main(String[] args) {
-		//Khởi tạo một đối tượng
-		LinkedHashSet<String> linkedHashSet= new LinkedHashSet<>();
+		//new obj
+		LinkedHashSet<String> linkedHashSet = new LinkedHashSet<>();
 		
-		//Thêm dữ liệu
+		//add data
 		linkedHashSet.add("One");
 		linkedHashSet.add("Two");
 		linkedHashSet.add("Three");
 		linkedHashSet.add("for");
 		
-		//Duyệt một linkedHashSet
-		Iterator iterator= linkedHashSet.iterator();
+		//Show data
+		Iterator iterator = linkedHashSet.iterator();
 		while (iterator.hasNext()) {
 			System.out.println(iterator.next()); 
 		}

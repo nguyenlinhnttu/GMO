@@ -3,26 +3,26 @@
 public class StringBuilderExample {
 
 	public static void main(String[] args) {
-		// Tạo một đối tượng StringBuilder
+	    //New obj
 		StringBuilder builder= new StringBuilder("Nguyễn Văn  ");
 		
-		// Nối chuỗi sử dụng append
+		// append String
 		builder.append("Linh");
 		System.out.println(builder);
 				
-		// Insert tại vị trí chỉ định
+		// Insert start position 0
 		builder.insert(0, "Hi ");
 		System.out.println(builder);
 		
-		// thay thế chuỗi tại vị trí chỉ định
+		// Insert start position 
 		builder.replace(0, 2, "Hello");
 		System.out.println(builder);
 				
-		// Xóa chuỗi tại vị trí chỉ định
+		// delete
 		builder.delete(0,6);
 		System.out.println(builder);
 				
-		//Đảo chuỗi
+		//reverse
 		builder.reverse();
 		System.out.println(builder);
 	}

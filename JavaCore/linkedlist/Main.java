@@ -3,15 +3,15 @@
 public class Main {
 	public static void main(String[] args) {
 	
-	DataLinked dataLinked= new DataLinked();
-	//Gọi các method đã tạo
+	DataLinked dataLinked = new DataLinked();
+	//Call method
 	dataLinked.addItem();
 	dataLinked.showList();
-	dataLinked.addFirstItem("FistName");       //Thêm vào vị trí đầu tiên
-	dataLinked.addItemWithPosition(2,"Nam");   //Add item ở vị trí số 2
-	dataLinked.changeItemWithPos(3,"Việt");    //Thay đổi Item ở vị trí số 3
+	dataLinked.addFirstItem("FistName");
+	dataLinked.addItemWithPosition(2,"Nam");
+	dataLinked.changeItemWithPos(3,"Việt");
 	System.out.println("LinkedList sau khi thay đổi là:");
 	dataLinked.showList();
-	dataLinked.listIterator();                 //Duyệt sử dụng Iterator
+	dataLinked.listIterator();
 	}
 }

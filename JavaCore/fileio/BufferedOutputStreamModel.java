@@ -13,14 +13,14 @@ public class BufferedOutputStreamModel {
 	    //Sử dụng BufferedOutputStream ghi dữ liệu xuống file
 	    BufferedOutputStream stream = null;
 		try {
-			stream = new BufferedOutputStream(
-							new FileOutputStream(OUTPUT_FILE));
-			//Ghi dữ liệu
-			stream.write("Nguyễn Văn Linh".getBytes());
-			stream.write(System.lineSeparator().getBytes()); // Xuống hàng
-			stream.write("Dư Ngọc kim".getBytes());
-			stream.flush();  //Đẩy dữ liệu đảm bảo dữ liệu trên bộ nhớ đệm ko mất đi
-			
+		    stream = new BufferedOutputStream(
+                    new FileOutputStream(OUTPUT_FILE));
+            //write data
+            stream.write("Nguyễn Văn Linh".getBytes());
+            stream.write(System.lineSeparator().getBytes()); // new line
+            stream.write("Dư Ngọc kim".getBytes());
+            stream.flush();  //Đẩy dữ liệu, đảm bảo dữ liệu trên bộ nhớ đệm ko mất đi
+            
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {

@@ -5,7 +5,7 @@ import java.util.ListIterator;
 
 public class ListIteratorClass {
 	ArrayList<String> arrayList= new ArrayList<>();
-	//Thêm dữ liệu
+	//add data
 	public void addItems() {
 		arrayList.add("Linh");
 		arrayList.add("Kim");
@@ -13,26 +13,27 @@ public class ListIteratorClass {
 		arrayList.add("Tuấn");
 	}
 
-	//Duyệt và thay đổi giá trị trong khi duyệt
+	//Show data
 	public void changeWithListIterator() {
-		ListIterator<String> listIterator= arrayList.listIterator();
+		ListIterator<String> listIterator = arrayList.listIterator();
 		while (listIterator.hasNext()) {
-			String value =listIterator.next();
+			String value = listIterator.next();
 			if (value.equals("Linh")) {
 				listIterator.set("Nguyễn Văn Linh");
-				//listIterator.remove(); Hàm này dùng để xóa phần tử hiện tại
-			} else if(value.equals("Kim")) {
+				//listIterator.remove(); remove item
+			} else if (value.equals("Kim")) {
 				listIterator.set("Dư Ngọc Kim");
 			}
 		}
 	}
 
-	// Hiển thị đã dữ liệu sau khi đã thay đổi
+	// show data after changed
 	public void showList() {
 		System.out.println("Nội dung của ArrayList sau khi thay đổi là:");
 		ListIterator<String> listIterator= arrayList.listIterator();
+		String value = new String();
 		while (listIterator.hasNext()) {
-			String value= listIterator.next();
+			 value= listIterator.next();
 			System.out.println(value);
 		}
 	}
