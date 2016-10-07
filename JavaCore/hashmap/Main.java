@@ -3,8 +3,9 @@
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	    //New DataHashMap
 		DataHashMap dataHashMap= new DataHashMap();
+		//Call method
 		dataHashMap.addItems();
 		dataHashMap.showMapItem();
 		dataHashMap.getValue(2);

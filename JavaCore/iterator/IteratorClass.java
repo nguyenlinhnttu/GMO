@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class IteratorClass {
 	ArrayList<String> arrayList= new ArrayList<>();
-	//Thêm dữ liệu vào arrayList
+	//add data
 	public void addItems() {
 		arrayList.add("Linh");
 		arrayList.add("Kim");
@@ -13,12 +13,12 @@ public class IteratorClass {
 		arrayList.add("Tuấn");
 	}
 
-	//Duyệt và hiện thị value của List
+	//Show data
 	public void showList() {
 		System.out.println("Nội dung của ArrayList là:");
-		Iterator<String> iterator= arrayList.iterator();
+		Iterator<String> iterator = arrayList.iterator();
 		while (iterator.hasNext()) {
-			String value= iterator.next();
+			String value = iterator.next();
 			System.out.println(value);
 		}
 	}

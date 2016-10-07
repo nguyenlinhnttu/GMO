@@ -1,59 +1,58 @@
 ﻿package hashtable;
 import java.util.*;
 public class DataHashTable {
-	 Hashtable<Integer,String> hashtable = new Hashtable<>();
-	 // Thêm dữ liệu vào map
+	 Hashtable<Integer,String> animalHash = new Hashtable<>();
+	 // add Data
 	 public void addItem() {
-		 hashtable.put(1, "Con chim");
-		 hashtable.put(2, "Con Cá");
-		 hashtable.put(3, "Con Cò");
-		 hashtable.put(4, "Con Mèo");
-		 hashtable.put(5, "Con Chó");
+	     animalHash.put(1, "Con chim");
+	     animalHash.put(2, "Con Cá");
+	     animalHash.put(3, "Con Cò");
+	     animalHash.put(4, "Con Mèo");
+	     animalHash.put(5, "Con Chó");
 	}
 
-	// Hiển thị dữ liệu
+	// show data
 	 public void showHashTable() {
-		 Enumeration<Integer> enumeration= hashtable.keys();
+		 Enumeration<Integer> enumeration = animalHash.keys();
 		 while (enumeration.hasMoreElements()) {
 			Integer key = (Integer) enumeration.nextElement();
-			String value= hashtable.get(key);
-			System.out.println(key +" : " + value );
+			String value = animalHash.get(key);
+			System.out.println(key + " : " + value );
 		}
 	}
 
-	 // Add dữ liệu theo key
+	 // Add data with key and value
 	 public void addValueWithKey(int key, String value) {
-		 hashtable.put(key, value);
+	     animalHash.put(key, value);
 		 System.out.println("Dữ liệu mới sau khi add là: ");
 		 showHashTable();
 	}
 	 
 	 //get value with key
 	 public void getValueWithKey(int key) {
-		String value= hashtable.get(key);
-		System.out.println("Gía trị tại key : " +key +" là " +value);
+		String value = animalHash.get(key);
+		System.out.println("Gía trị tại key : " + key + " là " + value);
 	}
 
 	 //Clone map
-	 public void  cloneMap() {
-		 Object object= hashtable.clone();
+	 public void cloneMap() {
+		 Object object= animalHash.clone();
 		 System.out.println("Map clone có dữ liệu là: "+ object);
-		
 	}
 	 
-	 //Kiểm tra key có tồn tại trong hashtable hay không
+	 //check key exits
 	 public void containsKey(int key) {
-        boolean isContain = hashtable.containsKey(key);
-        if(isContain==true){
+        boolean isContain = animalHash.containsKey(key);
+        if(isContain == true){
             System.out.println("Tồn tại");
         } else {
             System.out.println("Ko Tồn tại");
         }
     }
 	 
-	 //Xóa dữ liệu trong map
+	 //clear map
 	 public void deleteMap() {
-		hashtable.clear();
+	    animalHash.clear();
 		System.out.println("Xóa dữ liệu trong Map ");
 		showHashTable();
 	}	
