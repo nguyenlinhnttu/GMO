@@ -1,20 +1,30 @@
 package model;
 
-public class SinhVien {
-    private String mssv;
+import java.io.Serializable;
+
+public class SinhVien implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private int mssv;
     private String name;
     private String className;
     private String address;
     
     public SinhVien() {
-        super();
+        
+    }
+    
+    public SinhVien(int mssv, String name, String className, String address) {
+        this.mssv = mssv;
+        this.name = name;
+        this.className = className;
+        this.address = address;
     }
 
-    public String getMssv() {
+    public int getMssv() {
         return mssv;
     }
 
-    public void setMssv(String mssv) {
+    public void setMssv(int mssv) {
         this.mssv = mssv;
     }
 

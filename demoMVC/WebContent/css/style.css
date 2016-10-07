@@ -3,7 +3,6 @@ body {
 }
 .wrapper{
 	margin:auto;
-	height:100%;
 	width: 980px;
 }
 .btn-show{
@@ -19,7 +18,10 @@ body {
 #header, #content{
 	background: #fff;
 }
-
+#footer{
+	margin-top: 10px;
+	text-align: center;
+}
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -41,4 +43,31 @@ h1 {
 }
 p {
     color: red;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4CAF50;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #333;
+}
+
+.active {
+    background-color: #4CAF50;
 }
