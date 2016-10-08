@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import jdk.management.resource.ResourceRequestDeniedException;
-
 public class DBAccess {
    private static Connection conn;
     // Kết nối vào SQLServer.

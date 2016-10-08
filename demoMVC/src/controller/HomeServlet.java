@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.SinhVien;
-import model.SinhVienDAO;
+import model.SinhVienDAOImpl;
 
 @WebServlet(urlPatterns = { "/danhSachSV" })
 public class HomeServlet extends HttpServlet {
@@ -27,7 +27,7 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             List<SinhVien> list = new ArrayList<>();
-            SinhVienDAO method = new SinhVienDAO();
+            SinhVienDAOImpl method = new SinhVienDAOImpl();
             list = method.getAllSV();
             // Lưu thông tin request
             request.setAttribute("sinhVienList", list);

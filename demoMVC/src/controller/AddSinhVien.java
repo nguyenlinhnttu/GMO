@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.SinhVien;
-import model.SinhVienDAO;
+import model.SinhVienDAOImpl;
 
 @WebServlet(urlPatterns = { "/addSinhVien" })
 public class AddSinhVien extends HttpServlet {
@@ -31,9 +30,9 @@ public class AddSinhVien extends HttpServlet {
         String className = (String) request.getParameter("className");
         String address = (String) request.getParameter("address");
         SinhVien sinhVien = new SinhVien(mssvNew, name, className, address);
-        SinhVienDAO method;
+        SinhVienDAOImpl method;
         try {
-            method = new SinhVienDAO();
+            method = new SinhVienDAOImpl();
             method.addSinhVien(sinhVien);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

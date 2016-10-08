@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import connect.DBAccess;
 import model.SinhVien;
-import model.SinhVienDAO;
+import model.SinhVienDAOImpl;
 
 @WebServlet(urlPatterns = { "/findSinhVien" })
 public class FindSinhVien extends HttpServlet {
@@ -26,9 +25,9 @@ public class FindSinhVien extends HttpServlet {
 	    request.setCharacterEncoding("UTF-8");
 	    String mssv = request.getParameter("mssv");
         int mssvNew = Integer.parseInt(mssv);
-	    SinhVien sinhVien = null;
+        SinhVien sinhVien = null;
 	    try {
-            SinhVienDAO method = new SinhVienDAO();
+	        SinhVienDAOImpl method = new SinhVienDAOImpl();
             sinhVien = method.searchSV(mssvNew);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();    
