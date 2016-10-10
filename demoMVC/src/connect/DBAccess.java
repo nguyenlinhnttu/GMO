@@ -6,15 +6,24 @@ import java.sql.SQLException;
 
 public class DBAccess {
    private static Connection conn;
-    // Kết nối vào SQLServer.
-    public Connection getConnection() throws SQLException,
-            ClassNotFoundException {
+    // Connect SQLServer.
+    public Connection getConnection() {
          
-        // Chú ý: Thay đổi các thông số kết nối cho phù hợp.
+        // url connection
         String connectionUrl = "jdbc:sqlserver://localhost:1433;" +  
                 "databaseName=QLSINHVIEN;user=sa;password=123456;";  
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        conn = DriverManager.getConnection(connectionUrl);
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            conn = DriverManager.getConnection(connectionUrl);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return conn;
     }
 }

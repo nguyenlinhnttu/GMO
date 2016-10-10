@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Iutf-8">
@@ -21,13 +22,13 @@ function validateForm() {
 					<h1>Danh sách các sinh viên của trường Nguyễn Tất Thành</h1>
 				</div>	
 				<%@ include file="/fragment/_menu.jsp"%>	
-				<div id ='content'>
-					<form name = "myForm" method = "POST" action ="findSinhVien"
+				<div id ='content' >
+					<form name = "myForm" method = "POST" action ="findStudent"
 						onsubmit="return validateForm()">
 						<br>Nhập MSSV
 					  	<input type="number" name = "mssv"/>
 					  	<br><br>
-					  	 <input type="submit" value ="Tìm Kiếm" />
+					  	 <input type="submit" value ="Tìm Kiếm"/>
 				  </form>
 				  <table>
 						<tr>
@@ -36,14 +37,12 @@ function validateForm() {
 							<th>Mã Lớp</th>
 							<th>Liên hệ</th>
 						</tr>
-						 <c:forEach items="${sinhVien}" var="sinhVien" >
 						<tr>
-							<td>${sinhVien.mssv}</td>
-							<td>${sinhVien.name}</td>
-							<td>${sinhVien.className}</td>
-							<td>${sinhVien.address}</td>
+							<td>${student.mssv}</td>
+							<td>${student.name}</td>
+							<td>${student.className}</td>
+							<td>${student.address}</td>
 						 </tr>
-						 </c:forEach>
 					</table>
 				</div>	
 	</div>

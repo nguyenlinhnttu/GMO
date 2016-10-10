@@ -3,8 +3,6 @@ package controller;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,35 +15,36 @@ import connect.DBAccess;
 import model.Students;
 import model.StudentsDAOImpl;
 
-@WebServlet(urlPatterns = { "/listStudent" })
-public class HomeServlet extends HttpServlet {
-
+@WebServlet(urlPatterns = { "/findStudent" })
+public class FindStudent extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public HomeServlet() {
+    public FindStudent() {
         super();
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //New connection
+        request.setCharacterEncoding("UTF-8");
+        //Get Parameter 
+        String mssv = request.getParameter("mssv");
+        int mssvNew = Integer.parseInt(mssv);
+        //New connection 
         DBAccess access = new DBAccess();
         Connection conn = access.getConnection();
-        
-        List<Students> studentList = new ArrayList<>();
+        Students students = null;
         StudentsDAOImpl method = new StudentsDAOImpl();
+        //Use method findStudent and return object Students
         try {
-            studentList = method.getAllStudent(conn);
+            students = method.findStudent(conn, mssvNew);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        // Save request
-        request.setAttribute("StudentList", studentList);
-        // forward index
-        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
+        //Sava data to request
+        request.setAttribute("student", students);
+        //forward findStudent.jsp
+        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/findStudent.jsp");
         dispatcher.forward(request, response);
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

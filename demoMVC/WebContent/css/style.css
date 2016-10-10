@@ -1,11 +1,12 @@
 body {
     background-color: powderblue;
 }
-.wrapper{
+.wrapper {
 	margin:auto;
 	width: 980px;
+	background-color:#fff;
 }
-.btn-show{
+.btn-show {
 	color: #FFFFFF;
     background-color: #4CAF50;
 	display:block;
@@ -15,10 +16,14 @@ body {
 	padding-top:5px;
 	width:150px;
 }
-#header, #content{
+#header, #content {
 	background: #fff;
 }
-#footer{
+#contentadd {
+	width : 400px;
+	margin: auto;
+}
+#footer {
 	margin-top: 10px;
 	text-align: center;
 }

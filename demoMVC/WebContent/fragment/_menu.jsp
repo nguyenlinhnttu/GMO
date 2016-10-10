@@ -8,9 +8,9 @@
 <body>
 	<div>
 		<ul>
-			<li><a href="danhSachSV">Danh Sách Sinh Viên</a></li>
-			<li><a href="ThemSinhVien.jsp">Thêm Sinh Viên</a></li>
-			<li><a href="TimKiem.jsp">Tìm kiếm Sinh Viên</a></li>
+			<li><a href="listStudent">Danh Sách Sinh Viên</a></li>
+			<li><a href="addStudent.jsp">Thêm Sinh Viên</a></li>
+			<li><a href="findStudent.jsp">Tìm kiếm Sinh Viên</a></li>
 		</ul>
 	</div>
 </body>

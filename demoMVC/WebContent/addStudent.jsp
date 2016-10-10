@@ -12,17 +12,17 @@
 					<h1>Danh sách các sinh viên của trường Nguyễn Tất Thành</h1>
 				</div>	
 				<%@ include file="/fragment/_menu.jsp"%>	
-				<div id ='content'>
-					<form method = "POST" action ="addSinhVien">
-						${errorMesage}</p><br>
+				<div id ='contentadd'>
+					<form method = "POST" action ="addStudent">
+						<p>${errorMesage}</p>
 						Nhập MSSV<br>
-					  	<input type="text" name = "mssv" value = "${sinhVien.mssv }" /><br>
+					  	<input type="text" name = "mssv" value = "${student.mssv }" /><br>
 					  	Nhập Tên<br>
-					  	<input type="text" name = "name" value = "${sinhVien.name}"/> <br>
+					  	<input type="text" name = "name" value = "${student.name}"/> <br>
 					  	Tên Lớp<br>
-					  	<input type="text" name = "className" value = "${sinhVien.className}"/><br>
+					  	<input type="text" name = "className" value = "${student.className}"/><br>
 					  	Địa Chỉ<br>
-					 	 <input type="text" name = "address" value = "${sinhVien.address}"/><br><br>
+					 	 <input type="text" name = "address" value = "${student.address}"/><br><br>
 					  	 
 					  	 <input type="submit" value="Thêm Sinh Viên">
 				  </form>

@@ -11,7 +11,7 @@
 				<div id ='header'> 
 					<h1>Danh sách các sinh viên của trường Nguyễn Tất Thành</h1>
 				</div>	
-				<%@ include file="/fragment/_menu.jsp"%>	
+				<%@ include file="fragment/_menu.jsp"%>	
 				<div id ='content'>
 					<table>
 						<tr>
@@ -20,17 +20,17 @@
 							<th>Mã Lớp</th>
 							<th>Liên hệ</th>
 						</tr>
-						 <c:forEach items="${sinhVienList}" var="sv" >
+						 <c:forEach items="${StudentList}" var="SList" >
 						<tr>
-							<td>${sv.mssv}</td>
-							<td>${sv.name}</td>
-							<td>${sv.className}</td>
-							<td>${sv.address}</td>
+							<td>${SList.mssv}</td>
+							<td>${SList.name}</td>
+							<td>${SList.className}</td>
+							<td>${SList.address}</td>
 						 </tr>
 						 </c:forEach>
 					</table>
 				</div>	
 			</div>
-			<%@ include file="/fragment/_footer.html"%>	
+			<%@ include file="fragment/_footer.html"%>	
 		</body>
 </html> 
