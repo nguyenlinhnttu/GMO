@@ -51,5 +51,4 @@ public class FindStudent extends HttpServlet {
             throws ServletException, IOException {
         doGet(request, response);
     }
-
 }

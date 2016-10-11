@@ -24,7 +24,6 @@ public class HomeServlet extends HttpServlet {
 
     public HomeServlet() {
         super();
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -45,12 +44,10 @@ public class HomeServlet extends HttpServlet {
         // forward index
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }
-
 }

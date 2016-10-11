@@ -18,18 +18,18 @@ public class StudentsDAOImpl implements StudentsDAO {
         String sql = "SELECT * FROM STUDENT WHERE MSSV = ?";
         PreparedStatement statement;
         statement = conn.prepareStatement(sql);
+        
         statement.setInt(1, mssv);
         ResultSet resultSet = statement.executeQuery();
-        Students sinhVien = new Students();
+        Students students = new Students();
         while (resultSet.next()) {
             int mssv1 = resultSet.getInt("MSSV");
             String name = resultSet.getString("NAME");
             String className = resultSet.getString("CLASS");
             String address = resultSet.getString("ADREESS");
-            sinhVien = new Students(mssv1, name, className, address);
+            students = new Students(mssv1, name, className, address);
         }
-        return sinhVien;
-
+        return students;
     }
     
     //Get all student
@@ -38,17 +38,18 @@ public class StudentsDAOImpl implements StudentsDAO {
         String sql = "SELECT  * FROM STUDENT";
         PreparedStatement statement;
         statement = conn.prepareStatement(sql);
+        
         ResultSet resultSet = statement.executeQuery();
-        List<Students> list = new ArrayList<Students>();
+        List<Students> listStudent = new ArrayList<Students>();
         while (resultSet.next()) {
             int mssv = resultSet.getInt("MSSV");
             String name = resultSet.getString("NAME");
             String className = resultSet.getString("CLASS");
             String address = resultSet.getString("ADREESS");
-            Students sinhVien = new Students(mssv, name, className, address);
-            list.add(sinhVien);
+            Students students = new Students(mssv, name, className, address);
+            listStudent.add(students);
         }
-        return list;
+        return listStudent;
     }
     
     //Add new student
@@ -56,13 +57,12 @@ public class StudentsDAOImpl implements StudentsDAO {
     public void addStudent(Connection conn, Students obj) throws SQLException {
         String sql = "INSERT INTO STUDENT (MSSV,NAME,CLASS,ADREESS) values (?,?,?,?)";
         PreparedStatement statement;
-
         statement = conn.prepareStatement(sql);
+        
         statement.setInt(1, obj.getMssv());
         statement.setString(2, obj.getName());
         statement.setString(3, obj.getClassName());
         statement.setString(4, obj.getAddress());
         statement.executeUpdate();
-
     }
 }
