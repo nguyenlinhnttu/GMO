@@ -37,12 +37,12 @@ function validateForm() {
 							<th>Mã Lớp</th>
 							<th>Liên hệ</th>
 						</tr>
-						<tr>
-							<td>${student.mssv}</td>
-							<td>${student.name}</td>
-							<td>${student.className}</td>
-							<td>${student.address}</td>
-						 </tr>
+							<tr>
+								<td>${student.mssv}</td>
+								<td>${student.name}</td>
+								<td>${student.className}</td>
+								<td>${student.address}</td>
+							 </tr>
 					</table>
 				</div>	
 	</div>
