@@ -13,11 +13,10 @@ public class StudentsDAOImpl implements StudentsDAO {
 
     }
     
-    //Search SinhVien with key
+    //Search student with key
     public Students findStudent(Connection conn, int mssv) throws SQLException {
-        String sql = "SELECT *FROM SINHVIEN WHERE MSSV = ?";
+        String sql = "SELECT * FROM STUDENT WHERE MSSV = ?";
         PreparedStatement statement;
-
         statement = conn.prepareStatement(sql);
         statement.setInt(1, mssv);
         ResultSet resultSet = statement.executeQuery();
@@ -33,18 +32,17 @@ public class StudentsDAOImpl implements StudentsDAO {
 
     }
     
-    //Get all SinhVien
+    //Get all student
     @Override
     public List<Students> getAllStudent(Connection conn) throws SQLException {
-        String sql = "SELECT  MSSV,NAME,CLASS,ADREESS FROM SINHVIEN";
+        String sql = "SELECT  * FROM STUDENT";
         PreparedStatement statement;
-
         statement = conn.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
         List<Students> list = new ArrayList<Students>();
         while (resultSet.next()) {
-            int mssv = resultSet.getInt("mssv");
-            String name = resultSet.getString("Name");
+            int mssv = resultSet.getInt("MSSV");
+            String name = resultSet.getString("NAME");
             String className = resultSet.getString("CLASS");
             String address = resultSet.getString("ADREESS");
             Students sinhVien = new Students(mssv, name, className, address);
@@ -53,10 +51,10 @@ public class StudentsDAOImpl implements StudentsDAO {
         return list;
     }
     
-    //Add new SinhVien
+    //Add new student
     @Override
     public void addStudent(Connection conn, Students obj) throws SQLException {
-        String sql = "INSERT INTO SinhVien (MSSV,NAME,CLASS,ADREESS) values (?,?,?,?)";
+        String sql = "INSERT INTO STUDENT (MSSV,NAME,CLASS,ADREESS) values (?,?,?,?)";
         PreparedStatement statement;
 
         statement = conn.prepareStatement(sql);
