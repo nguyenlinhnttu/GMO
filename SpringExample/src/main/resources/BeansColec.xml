@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <!-- Definition for javaCollection -->
+   <bean id="javaCollection" class="injectingcolection.JavaColection">
+
+      <!-- results in a setAddressList(java.util.List) call -->
+      <property name="addressList">
+         <list>
+            <value>Quận 1</value>
+            <value>Quận 1</value>
+            <value>Gò Vấp</value>
+            <value>Tân Bình</value>
+         </list>
+      </property>
+
+      <!-- results in a setAddressSet(java.util.Set) call -->
+      <property name="addressSet">
+         <set>
+            <value>Quận 1</value>
+            <value>Quận 1</value>
+            <value>Gò Vấp</value>
+            <value>Tân Bình</value>
+        </set>
+      </property>
+
+      <!-- results in a setAddressMap(java.util.Map) call -->
+      <property name="addressMap">
+         <map>
+            <entry key="1" value="Quận 1"/>
+            <entry key="2" value="Quận 1"/>
+            <entry key="3" value="Gò Vấp"/>
+            <entry key="4" value="Tân Bình"/>
+         </map>
+      </property>
+      
+      <!-- results in a setAddressProp(java.util.Properties) call -->
+      <property name="addressProp">
+         <props>
+            <prop key="one">Quận 1</prop>
+            <prop key="two">Quận 1</prop>
+            <prop key="three">Gò Vấp</prop>
+            <prop key="four">Tân Bình</prop>
+         </props>
+      </property>
+
+   </bean>
+
+</beans>
