@@ -8,9 +8,10 @@ public class DBAccess {
    private static Connection conn;
     // Connect SQLServer.
     public Connection getConnection() {
+         
         // url connection
-        String connectionUrl = "jdbc:sqlserver://localhost:1433;" +
-                "databaseName = QLSINHVIEN;user = sa;password = 123456;";
+        String connectionUrl = "jdbc:sqlserver://localhost:1433;" +  
+                "databaseName=QLSINHVIEN;user=sa;password=123456;";  
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException e) {

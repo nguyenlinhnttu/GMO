@@ -13,56 +13,58 @@ public class StudentsDAOImpl implements StudentsDAO {
 
     }
     
-    //Search student with key
+    //Search SinhVien with key
     public Students findStudent(Connection conn, int mssv) throws SQLException {
-        String sql = "SELECT * FROM STUDENT WHERE MSSV = ?";
+        String sql = "SELECT *FROM SINHVIEN WHERE MSSV = ?";
         PreparedStatement statement;
+
         statement = conn.prepareStatement(sql);
-        
         statement.setInt(1, mssv);
         ResultSet resultSet = statement.executeQuery();
-        Students students = new Students();
+        Students sinhVien = new Students();
         while (resultSet.next()) {
             int mssv1 = resultSet.getInt("MSSV");
             String name = resultSet.getString("NAME");
             String className = resultSet.getString("CLASS");
             String address = resultSet.getString("ADREESS");
-            students = new Students(mssv1, name, className, address);
+            sinhVien = new Students(mssv1, name, className, address);
         }
-        return students;
+        return sinhVien;
+
     }
     
-    //Get all student
+    //Get all SinhVien
     @Override
     public List<Students> getAllStudent(Connection conn) throws SQLException {
-        String sql = "SELECT  * FROM STUDENT";
+        String sql = "SELECT  MSSV,NAME,CLASS,ADREESS FROM SINHVIEN";
         PreparedStatement statement;
+
         statement = conn.prepareStatement(sql);
-        
         ResultSet resultSet = statement.executeQuery();
-        List<Students> listStudent = new ArrayList<Students>();
+        List<Students> list = new ArrayList<Students>();
         while (resultSet.next()) {
-            int mssv = resultSet.getInt("MSSV");
-            String name = resultSet.getString("NAME");
+            int mssv = resultSet.getInt("mssv");
+            String name = resultSet.getString("Name");
             String className = resultSet.getString("CLASS");
             String address = resultSet.getString("ADREESS");
-            Students students = new Students(mssv, name, className, address);
-            listStudent.add(students);
+            Students sinhVien = new Students(mssv, name, className, address);
+            list.add(sinhVien);
         }
-        return listStudent;
+        return list;
     }
     
-    //Add new student
+    //Add new SinhVien
     @Override
     public void addStudent(Connection conn, Students obj) throws SQLException {
-        String sql = "INSERT INTO STUDENT (MSSV,NAME,CLASS,ADREESS) values (?,?,?,?)";
+        String sql = "INSERT INTO SinhVien (MSSV,NAME,CLASS,ADREESS) values (?,?,?,?)";
         PreparedStatement statement;
+
         statement = conn.prepareStatement(sql);
-        
         statement.setInt(1, obj.getMssv());
         statement.setString(2, obj.getName());
         statement.setString(3, obj.getClassName());
         statement.setString(4, obj.getAddress());
         statement.executeUpdate();
+
     }
 }
