@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.StudentInfoMapper">
+	 <!-- MODEL STUDENTINFO -->
+    <resultMap type="model.StudentInfo" id="studentInfoMap">
+		<id column="INFO_ID" property="infoID"/>
+		<result column="STUDENT_ID" property="studentID"/>
+		<result column="ADDRESS" property="address"/>
+		<result column="AVERAGE_SCORE" property="averageScore" />
+		<result column="DATE_OF_BIRTH" property="dateOfBirth"/>
+	</resultMap>
+	
+	<!-- SELECT ALL STUDENTINFO -->
+	<select id="getAllStudentInfo" resultMap="studentInfoMap">
+		SELECT * FROM STUDENT_INFO
+	</select>
+	
+	<!-- SELECT  STUDENTINFO BY ID-->
+	<select id="getInfoByID" parameterType ="int" resultMap="studentInfoMap">
+		SELECT * FROM STUDENT_INFO 
+		WHERE STUDENT_ID = #{studentID}
+	</select>
+	<!-- INSERT NEW STUDENTINFO -->
+    <insert id="insertStudentInfo"
+     parameterType='model.StudentInfo'>
+    	INSERT INTO STUDENT_INFO(STUDENT_ID,ADDRESS,AVERAGE_SCORE,DATE_OF_BIRTH)
+    	VALUES(#{studentID},#{address},#{averageScore},#{dateOfBirth})
+    </insert>
+    
+	<!-- UPDATE STUDENTINFO -->
+	<update id="updateStudentInfo" parameterType='model.StudentInfo'>
+		UPDATE STUDENT_INFO SET
+			ADDRESS = #{address},
+			AVERAGE_SCORE = #{averageScore}, 
+			DATE_OF_BIRTH = #{dateOfBirth}
+		WHERE STUDENT_ID = #{studentID}
+	</update>
+	<!-- DELETE STUDENTINFO -->
+	<delete id="deleteStudentInfo" parameterType="int">
+		DELETE FROM
+		STUDENT_ID WHERE STUDENT_ID = #{studentID};
+	</delete>
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.StudentMapper">
+	 <!-- MODEL STUDENT -->
+	<resultMap type="model.Student" id="studentMap">
+		<id column="STUDENT_ID" property="studentID"/>
+		<result column="STUDENT_NAME" property="studentName"/>
+		<result column="STUDENT_CODE" property="studentCode"/>
+	</resultMap>
+	
+	<!-- GET LIST STUDENT -->
+    <select id="getAllStudent" resultMap="studentMap">
+  	  SELECT * FROM STUDENT  
+    </select>
+    <!-- GET LIST STUDENT -->
+    <select id="getListStudent" resultMap="studentMap">
+  	  SELECT * FROM STUDENT  LIMIT #{firstResult},#{maxResult}
+    </select>
+    <!-- INSERT NEW STUDENT -->
+    <insert id="insertStudent"
+     parameterType='model.Student' 
+     useGeneratedKeys='true'
+     keyProperty='studentID'>
+    	INSERT INTO STUDENT(STUDENT_NAME,STUDENT_CODE)
+    	VALUES(#{studentName},#{studentCode})
+    </insert>
+    
+	<!-- UPDATE STUDENT -->
+	<update id="updateStudent" parameterType='model.Student' >
+		UPDATE STUDENT SET
+			STUDENT_NAME = #{studentName}
+		WHERE STUDENT_CODE = #{studentCode}
+	</update>
+	
+	<!-- DELETE STUDENT -->
+	<delete id="deleteStudent" parameterType="int">
+		DELETE FROM STUDENT WHERE STUDENT_ID = #{studentID}
+	</delete>
+	
+	<!-- COUNT STUDENT -->
+    <select id="countStudent" resultType="int">
+  	  SELECT count(STUDENT_CODE) FROM STUDENT  
+    </select>
+</mapper>
