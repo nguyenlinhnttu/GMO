@@ -12,7 +12,7 @@ public class StudentInfo implements Serializable {
 	private Date dateOfBirth;
 	
 	public StudentInfo() {
-		
+		super();
 	}
 	public StudentInfo(int infoID, int studentID, String address, double averageScore, Date dateOfBirth) {
 		super();

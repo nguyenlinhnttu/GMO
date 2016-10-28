@@ -12,9 +12,8 @@ public class MybatisConfig {
 	private static final String conf = "mybatis-config.xml";
 
 	public MybatisConfig() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
 	static {
 		Reader reader = null;
 		try {

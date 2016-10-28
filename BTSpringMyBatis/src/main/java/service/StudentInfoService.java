@@ -1,6 +1,5 @@
 package service;
 
-import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
@@ -10,20 +9,7 @@ import model.StudentInfo;
 
 @Service
 public class StudentInfoService implements StudentInfoMapper{
-
-	@Override
-	public List<StudentInfo> getAllStudentInfo() {
-		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
-		try {
-			StudentInfoMapper studentMapper = sqlSession.getMapper(StudentInfoMapper.class);
-			return studentMapper.getAllStudentInfo();
-		} catch (Exception ex) {
-			sqlSession.rollback();
-			sqlSession.close();
-		}
-		return null;
-	}
-
+	
 	@Override
 	public void insertStudentInfo(StudentInfo studentInfo) {
 		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
@@ -66,16 +52,18 @@ public class StudentInfoService implements StudentInfoMapper{
 	}
 
 	@Override
-	public void deleteInfoStudent(int student_id) {
+	public boolean deleteInfoStudent(int student_id) {
 		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
 		try {
 			StudentInfoMapper studentMapper = sqlSession.getMapper(StudentInfoMapper.class);
 			studentMapper.deleteInfoStudent(student_id);
 			sqlSession.commit();
+			return true;
 		} catch (Exception ex) {
 			System.out.println(ex);
 			sqlSession.rollback();
 			sqlSession.close();
 		}
+		return false;
 	}
 }

@@ -8,9 +8,9 @@
 <body>
 	<div>
 		<ul>
-			<li><a href="getallstudent">List Student</a></li>
+			<li><a href="studentwithinfo">List Student Info</a></li>
 			<li><a href="insert">Add New</a></li>
-			<li><a href="listinfo">List Info</a></li>
+			<li><a href="search">Tìm Kiếm</a></li>
 		</ul>
 	</div>
 </body>

@@ -16,8 +16,8 @@
 		<div id='contentadd'>
 			<form method="POST" action="addstudent">
 				<p>${message}</p>
-				Fullname<br /> <input type="text" name="studentName" /><br />
-				Student Code<br /> <input type="text" name="studentCode" /><br />
+				Fullname<br /> <input type="text" name="studentName" required/><br />
+				Student Code<br /> <input type="text" name="studentCode" required/><br />
 				<br /> <input type="submit" value="Add New Student">
 			</form>
 			<br />

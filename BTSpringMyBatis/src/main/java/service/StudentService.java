@@ -10,13 +10,13 @@ import mapper.StudentMapper;
 import model.Student;
 @Service
 public class StudentService implements StudentMapper{
-
+	
 	@Override
-	public List<Student> getAllStudent() {
+	public List<Student> getStudentWithInfo() {
 		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
 		try {
 			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
-			return studentMapper.getAllStudent();
+			return studentMapper.getStudentWithInfo();
 		} catch (Exception ex) {
 			sqlSession.rollback();
 			sqlSession.close();
@@ -64,6 +64,21 @@ public class StudentService implements StudentMapper{
 	}
 
 	@Override
+	public Student searchStudent(String student_Code) {
+		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
+		try {
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			Student student = studentMapper.searchStudent(student_Code);
+			sqlSession.commit();
+			return student;
+		} catch (Exception ex) {
+			sqlSession.rollback();
+			sqlSession.close();
+		}	
+		return null;
+	}
+	
+	@Override
 	public int countStudent() {
 		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
 		try {
@@ -77,16 +92,15 @@ public class StudentService implements StudentMapper{
 	}
 
 	@Override
-	public List<Student> getListStudent(int firstResult, int maxResult) {
+	public List<Student> pageStudent(int firstResult, int maxResult) {
 		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
 		try {
 			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
-			return studentMapper.getListStudent(firstResult,maxResult);
+			return studentMapper.pageStudent(firstResult,maxResult);
 		} catch (Exception ex) {
 			sqlSession.rollback();
 			sqlSession.close();
 		}
 		return null;
 	}
-
 }

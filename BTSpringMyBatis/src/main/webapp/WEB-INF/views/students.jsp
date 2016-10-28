@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <html>
 <head>
 	<link rel="stylesheet" href="resources/css/styles.css">
@@ -13,35 +14,44 @@
 		</div>
 		<%@ include file="/resources/fragment/_menu.jsp"%>
 		<div id='content'>
-		<p>${message}</p>
 			<table>
 				<tr>
 					<th>ID</th>
 					<th>Full Name</th>
 					<th>StudentCode</th>
-					<th></th>
+					<th>Address</th>
+					<th>AvarageScore</th>
+					<th>DateOfBirth</th>
+					<th>Option</th>
 				</tr>
 				<c:forEach items="${listStudent}" var="SList">
 					<tr>
 						<td>${SList.studentID}</td>
 						<td>${SList.studentName}</td>
 						<td>${SList.studentCode}</td>
-						<td><a href="viewdetail?studentID=${SList.studentID}">Chi
-								tiết</a> <a href="update?studentID=${SList.studentID}">Cập
-								nhật</a> <a href="deletestudent?studentID=${SList.studentID}">Xóa</a>
+						<td>${SList.studentInfo.address}</td>
+						<td>${SList.studentInfo.averageScore}</td>
+						<td><fmt:formatDate pattern="dd-MM-yyyy" value="${SList.studentInfo.dateOfBirth}" /></td>
+						<td>
+							<a href="update?studentID=${SList.studentID}">Cập nhật</a> 
+							<a href="deletestudent?studentID=${SList.studentID}">Xóa</a>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
 		</div>
-		<p>${count}</p>
 		<div class="page">
 			<ul id="pagination-flickr">
 				<%
-				  int lenght = (Integer) request.getAttribute("count")/10; 
-			      for (int i = 0; i < lenght; i++) {
-			  	%>
-			        <li><a href="page?number=">i</a></li>
+				  int totalRecord = (Integer) request.getAttribute("count");
+				  int pages = totalRecord/10;
+				  if ( (totalRecord % 10) > 0){
+					  pages = pages +1;
+				  }
+				  int i;
+			      for (i = 1; i < pages + 1; i++) {
+			  	%>	
+			        <li><a href="page?number=<%=i%>"><%=i%></a></li>
 			  	<%
 			      }
  				%>

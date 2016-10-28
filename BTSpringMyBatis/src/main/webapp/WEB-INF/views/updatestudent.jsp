@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <html>
 <head>
 	<link rel="stylesheet" href="resources/css/styles.css">
@@ -12,6 +11,7 @@
 			<h1>UPDATE STUDENT</h1>
 		</div>
 		<%@ include file="/resources/fragment/_menu.jsp"%>
+		<p>${message}</p>
 		<div id='contentadd'>
 			<form method="POST" action="updateinfostudent">
 				StudentID<input type="number" name="studentID" readonly="readonly" value="${studentID}"/><br/>
