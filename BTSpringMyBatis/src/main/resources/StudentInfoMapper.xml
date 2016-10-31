@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 			AVERAGE_SCORE,
 			DATE_OF_BIRTH
 		FROM 
-			STUDENT_INFO 
+			student_info 
 		WHERE 
 			STUDENT_ID = #{studentID}	
 	</select>
@@ -28,14 +28,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 	<!-- INSERT NEW STUDENTINFO -->
     <insert id="insertStudentInfo"
      parameterType='model.StudentInfo'>
-    	INSERT INTO STUDENT_INFO(STUDENT_ID,ADDRESS,AVERAGE_SCORE,DATE_OF_BIRTH)
+    	INSERT INTO student_info(STUDENT_ID,ADDRESS,AVERAGE_SCORE,DATE_OF_BIRTH)
     		VALUES(#{studentID},#{address},#{averageScore},#{dateOfBirth})
     </insert>
     
 	<!-- UPDATE STUDENTINFO -->
 	<update id="updateStudentInfo" parameterType='model.StudentInfo'>
 		UPDATE 
-			STUDENT_INFO 
+			student_info 
 		SET
 			ADDRESS = #{address},
 			AVERAGE_SCORE = #{averageScore}, 
@@ -44,6 +44,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 	</update>
 	<!-- DELETE STUDENTINFO -->
 	<delete id="deleteInfoStudent" parameterType="int">
-		DELETE FROM STUDENT_INFO WHERE STUDENT_ID = #{studentID};
+		DELETE FROM student_info WHERE STUDENT_ID = #{studentID};
 	</delete>
 </mapper>

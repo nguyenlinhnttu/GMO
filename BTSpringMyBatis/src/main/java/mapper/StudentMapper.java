@@ -1,15 +1,16 @@
 package mapper;
 
 import java.util.List;
+import java.util.Map;
+
 import model.Student;
 
 public interface StudentMapper {
 	List <Student> getStudentWithInfo();
 	Student searchStudent(String student_Code);
-	void insertStudent(Student student);
-	void deleteStudent(int student_Id);
-	void updateStudent(Student student);
-	
+	boolean insertStudent(Student student);
+	boolean deleteStudent(int student_Id);
+	boolean updateStudent(Student student);
 	int countStudent();
-	List <Student> pageStudent(int firstResult, int maxResult);
+	List <Student> pageStudent(Map<String, Integer> map);
 }

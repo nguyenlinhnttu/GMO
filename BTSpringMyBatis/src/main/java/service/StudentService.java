@@ -1,7 +1,9 @@
 package service;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.exceptions.PersistenceException;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +12,7 @@ import mapper.StudentMapper;
 import model.Student;
 @Service
 public class StudentService implements StudentMapper{
-	
+
 	@Override
 	public List<Student> getStudentWithInfo() {
 		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
@@ -25,41 +27,49 @@ public class StudentService implements StudentMapper{
 	}
 
 	@Override
-	public void insertStudent(Student student) {
+	public boolean insertStudent(Student student) {
 		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
 		try {
 			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
 			studentMapper.insertStudent(student);
 			sqlSession.commit();
-		} catch (Exception ex) {
+			return true;
+		} catch (PersistenceException ex) {
+			System.out.println(ex);
 			sqlSession.rollback();
 			sqlSession.close();
+			return false;
 		}
 	}
 
 	@Override
-	public void deleteStudent(int student_Id) {
+	public boolean deleteStudent(int student_Id) {
 		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
 		try {
 			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
 			studentMapper.deleteStudent(student_Id);
 			sqlSession.commit();
+			return true;
 		} catch (Exception ex) {
 			sqlSession.rollback();
 			sqlSession.close();
+			return false;
 		}	
 	}
 
 	@Override
-	public void updateStudent(Student student) {
+	public boolean updateStudent(Student student) {
 		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
 		try {
 			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
 			studentMapper.updateStudent(student);
 			sqlSession.commit();
+			return true;
 		} catch (Exception ex) {
 			sqlSession.rollback();
+			System.out.println(ex);
 			sqlSession.close();
+			return false;
 		}		
 	}
 
@@ -72,6 +82,7 @@ public class StudentService implements StudentMapper{
 			sqlSession.commit();
 			return student;
 		} catch (Exception ex) {
+			System.out.println(ex);
 			sqlSession.rollback();
 			sqlSession.close();
 		}	
@@ -92,11 +103,11 @@ public class StudentService implements StudentMapper{
 	}
 
 	@Override
-	public List<Student> pageStudent(int firstResult, int maxResult) {
-		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
+	public List<Student> pageStudent(Map<String, Integer> map) {
+		SqlSession sqlSession = MybatisConfig.getSqlSessionFactory	().openSession();
 		try {
 			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
-			return studentMapper.pageStudent(firstResult,maxResult);
+			return studentMapper.pageStudent(map);	
 		} catch (Exception ex) {
 			sqlSession.rollback();
 			sqlSession.close();

@@ -15,39 +15,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 			<result column="DATE_OF_BIRTH" property="dateOfBirth"/>
 		</association>
 	</resultMap>
-	<resultMap type="model.Student" id="studentMap">
-		<id column="STUDENT_ID" property="studentID"/>
-		<result column="STUDENT_NAME" property="studentName"/>
-		<result column="STUDENT_CODE" property="studentCode"/>
-	</resultMap>
 	
 	<!-- GET LIST STUDENT -->
     <select id="getStudentWithInfo" resultMap="studentInfoMap">
   	 	SELECT 
-  	  		STUDENT.STUDENT_ID,
-  	  		STUDENT.STUDENT_NAME,
-  	  		STUDENT.STUDENT_CODE,
-  	  		STUDENT_INFO.ADDRESS,
-  	  		STUDENT_INFO.AVERAGE_SCORE,
-  	  		STUDENT_INFO.DATE_OF_BIRTH
+  	  		student.STUDENT_ID,
+  	  		student.STUDENT_NAME,
+  	  		student.STUDENT_CODE,
+  	  		student_info.ADDRESS,
+  	  		student_info.AVERAGE_SCORE,
+  	  		student_info.DATE_OF_BIRTH
   	 	FROM 
-  	  		STUDENT LEFT JOIN  STUDENT_INFO 
-		ON STUDENT.STUDENT_ID = STUDENT_INFO.STUDENT_ID
+  	  		student LEFT JOIN  student_info 
+		ON student.STUDENT_ID = student_info.STUDENT_ID
+		LIMIT 0,10
     </select>
 	
 	<!-- SEARCH STUDENT -->
     <select id="searchStudent" parameterType="String" resultMap="studentInfoMap">
   	 	SELECT 
-  	  		STUDENT.STUDENT_ID,
-  	  		STUDENT.STUDENT_NAME,
-  	  		STUDENT.STUDENT_CODE,
-  	  		STUDENT_INFO.ADDRESS,
-  	  		STUDENT_INFO.AVERAGE_SCORE,
-  	  		STUDENT_INFO.DATE_OF_BIRTH
+  	  		student.STUDENT_ID,
+  	  		student.STUDENT_NAME,
+  	  		student.STUDENT_CODE,
+  	  		student_info.ADDRESS,
+  	  		student_info.AVERAGE_SCORE,
+  	  		student_info.DATE_OF_BIRTH
   	 	FROM 
-  	  		STUDENT LEFT JOIN STUDENT_INFO 
-		ON STUDENT.STUDENT_ID = STUDENT_INFO.STUDENT_ID 
-        WHERE STUDENT.STUDENT_CODE  = #{studentCode}
+  	  		student LEFT JOIN student_info 
+		ON student.STUDENT_ID = student_info.STUDENT_ID 
+        WHERE student.STUDENT_CODE  = #{studentCode}
     </select>
     
     <!-- INSERT NEW STUDENT -->
@@ -55,13 +51,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
      parameterType='model.Student' 
      useGeneratedKeys='true'
      keyProperty='studentID'>
-    	INSERT INTO STUDENT(STUDENT_NAME,STUDENT_CODE)
+    	INSERT INTO student(STUDENT_NAME,STUDENT_CODE)
     		VALUES(#{studentName},#{studentCode})
     </insert>
     
 	<!-- UPDATE STUDENT -->
 	<update id="updateStudent" parameterType='model.Student' >
-		UPDATE STUDENT 
+		UPDATE student 
 		SET
 			STUDENT_NAME = #{studentName}
 		WHERE 
@@ -70,20 +66,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 	
 	<!-- DELETE STUDENT -->
 	<delete id="deleteStudent" parameterType="int">
-		DELETE FROM STUDENT WHERE STUDENT_ID = #{studentID}
+		DELETE FROM student WHERE STUDENT_ID = #{studentID}
 	</delete>
 	
 	<!-- GET LIST STUDENT IN PAGE -->
-    <select id="pageStudent" parameterType="int" resultMap="studentMap">
-  	  	SELECT STUDENT_ID,
-  	  		 STUDENT_NAME,
-  	  		 STUDENT_CODE
-  	  	 FROM 
-  	   		 STUDENT  LIMIT #{firstResult}, #{maxResult}
+    <select id="pageStudent" parameterType="map" resultMap="studentInfoMap">
+  	  	SELECT 
+  	  		student.STUDENT_ID,
+  	  		student.STUDENT_NAME,
+  	  		student.STUDENT_CODE,
+  	  		student_info.ADDRESS,
+  	  		student_info.AVERAGE_SCORE,
+  	  		student_info.DATE_OF_BIRTH
+  	 	FROM
+  	  		student LEFT JOIN student_info 
+		ON student.STUDENT_ID = student_info.STUDENT_ID 
+		LIMIT #{start},10
+        
     </select>
     
 	<!-- COUNT STUDENT -->
     <select id="countStudent" resultType="int">
-  	  SELECT count(STUDENT_CODE) FROM STUDENT_INFO  
+  	  SELECT count(STUDENT_CODE) FROM student  
     </select>
 </mapper>

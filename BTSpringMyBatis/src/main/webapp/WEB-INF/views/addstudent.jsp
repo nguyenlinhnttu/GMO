@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
-	<link rel="stylesheet" href="resources/css/styles.css">
+	<link href="/resources/css/styles.css" type="text/css" rel="stylesheet">
 	<title>Add new Student</title>
 </head>
 <body>
@@ -16,9 +16,11 @@
 		<div id='contentadd'>
 			<form method="POST" action="addstudent">
 				<p>${message}</p>
-				Fullname<br /> <input type="text" name="studentName" required/><br />
-				Student Code<br /> <input type="text" name="studentCode" required/><br />
-				<br /> <input type="submit" value="Add New Student">
+				Fullname<br/>
+				<input type="text" name="studentName" required/><br/>
+				Student Code<br/>
+				<input type="text" name="studentCode" required/><br/><br/>
+				<input type="submit" value="Add New Student">
 			</form>
 			<br />
 		</div>

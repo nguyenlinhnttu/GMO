@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <html>
 <head>
-	<link rel="stylesheet" href="resources/css/styles.css">
+	<link  href="/resources/css/styles.css" type="text/css" rel="stylesheet" >
 	<title>Danh sách sinh viên</title>
 </head>
 <body>
@@ -14,7 +14,8 @@
 		</div>
 		<%@ include file="/resources/fragment/_menu.jsp"%>
 		<div id='content'>
-			<table>
+		<p>${message}</p>
+			<table id ="studentstable">
 				<tr>
 					<th>ID</th>
 					<th>Full Name</th>
@@ -41,6 +42,7 @@
 			</table>
 		</div>
 		<div class="page">
+			<p>Total :${count} row </p>
 			<ul id="pagination-flickr">
 				<%
 				  int totalRecord = (Integer) request.getAttribute("count");
