@@ -11,6 +11,6 @@ public interface StudentMapper {
 	boolean insertStudent(Student student);
 	boolean deleteStudent(int student_Id);
 	boolean updateStudent(Student student);
-	int countStudent();
-	List <Student> pageStudent(Map<String, Integer> map);
+	int countStudent(); // Count total students
+	List <Student> pageStudent(Map<String, Integer> map); // Get student in page
 }

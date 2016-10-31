@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import model.Student;
 import model.StudentInfo;
@@ -26,14 +27,14 @@ public class StudentController {
 	private static Log log = LogFactory.getLog(StudentController.class.getName());
 	// Get all Student with info merge 2 table
 	@RequestMapping("/studentwithinfo")
-	public String getAllStudent(ModelMap model) throws IOException {
+	public ModelAndView getAllStudent(ModelMap model) throws IOException {
 		StudentService studentService = new StudentService();
 		List<Student> listStudent = studentService.getStudentWithInfo();
 		int count = studentService.countStudent();
 		model.addAttribute("listStudent", listStudent);
 		model.addAttribute("count", count);
 		log.info("Get list student with Info!");
-		return "students";
+		return new ModelAndView("students");
 	}
 	
 	@RequestMapping(value = "/insert")
@@ -42,7 +43,7 @@ public class StudentController {
 	}
 	// Add new Student
 	@RequestMapping(value = "/addstudent", method = RequestMethod.POST)
-	public String  insertStudent(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ModelAndView  insertStudent(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		StudentService studentService = new StudentService();
@@ -60,7 +61,7 @@ public class StudentController {
 			log.info(message);
 			request.setAttribute("message", message);
 		}
-		return ("addstudent");
+		return new ModelAndView("addstudent");
 	}
 	
 	@RequestMapping(value = "/search")
@@ -69,7 +70,7 @@ public class StudentController {
 	}
 	// Search Student with StudentCode example:  13A1519597
 	@RequestMapping(value = "/searchstudents", method = RequestMethod.POST)
-	public String  searchStudent(ModelMap model,HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ModelAndView  searchStudent(ModelMap model,HttpServletRequest request, HttpServletResponse response) throws IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		StudentService studentService = new StudentService();
@@ -79,18 +80,16 @@ public class StudentController {
 		try {
 			if (student != null) {
 				model.addAttribute("student", student);
-				return ("searchstudent");
 			} else {
 				model.addAttribute("message", "Không tìm thấy!");
-				return ("searchstudent");
 			}
 		} catch (Exception ex){
 			log.error(ex);		
 		}
-		return ("searchstudent");
+		return new ModelAndView ("searchstudent");
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public String update(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) {
 		int studentID = Integer.parseInt(request.getParameter("studentID"));
 		StudentInfoService service = new StudentInfoService();
 		StudentInfo object = service.getInfoByID(studentID);
@@ -101,7 +100,7 @@ public class StudentController {
 			request.setAttribute("studentID", studentID);
 			request.setAttribute("student", object);
 		}
-		return "updatestudent";
+		return new ModelAndView("updatestudent");
 	}
 	// Update Info Student
 	@RequestMapping(value = "/updatestudent", method = RequestMethod.POST)
@@ -113,19 +112,18 @@ public class StudentController {
 		student.setStudentID(Integer.valueOf(student_ID));
 		student.setStudentName(request.getParameter("studentName"));
 		student.setStudentCode(request.getParameter("studentCode"));
-			StudentService studentService = new StudentService();
+		StudentService studentService = new StudentService();
 		boolean checkUpdate = studentService.updateStudent(student);
 		if (checkUpdate == true) {
 			String message = "Update thành công!";
 			log.info(message);
-			request.setAttribute("message", message);
-			response.sendRedirect(request.getContextPath() + "/update");
+			request.setAttribute("message", message);		
 		} else {
 			String message = "Update thất bại!";
 			log.info(message);
 			request.setAttribute("message", message);
-			response.sendRedirect(request.getContextPath() + "/update");
 		}	
+		response.sendRedirect(request.getContextPath() + "/update");
 	}
 	// Delete Student: Delete infoStudet if exits, after delete Student
 	@RequestMapping(value = "/deletestudent", method = RequestMethod.GET)
@@ -133,36 +131,35 @@ public class StudentController {
 		StudentService studentService = new StudentService();
 		StudentInfoService infoService = new StudentInfoService();
 		int studentID = Integer.valueOf(request.getParameter("studentID"));
-			StudentInfo info = infoService.getInfoByID(studentID);
+		StudentInfo info = infoService.getInfoByID(studentID);
+		String message = new String();
 			if (info == null) {
 				boolean checkDelete = studentService.deleteStudent(studentID); 
 				if (checkDelete == true) {
-					 String message = "Delete thành công!";
+					  message = "Delete thành công!";
 					 log.info(message);
-					 response.sendRedirect(request.getContextPath() + "/studentwithinfo");
+					 
 				} else {
-					String message = "Delete thất bại!";
+					 message = "Delete thất bại!";
 					log.info(message);
-					response.sendRedirect(request.getContextPath() + "/studentwithinfo");
 				}
 
 			} else  {
 				boolean checkDeleteInfo = infoService.deleteInfoStudent(studentID);
 				if( checkDeleteInfo == true) {
 					studentService.deleteStudent(studentID);
-					String message = "Delete thành công!";
+					 message = "Delete thành công!";
 					log.info(message);
-					response.sendRedirect(request.getContextPath() + "/studentwithinfo");
 				} else {
-					String message = "Delete thất bại!";
+					 message = "Delete thất bại!";
 					log.info(message);
-					response.sendRedirect(request.getContextPath() + "/studentwithinfo");
 				}
 			}
+			response.sendRedirect(request.getContextPath() + "/studentwithinfo");
 	}
 
 	@RequestMapping(value = "/page", method = RequestMethod.GET)
-	public String pageStudent(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ModelAndView pageStudent(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		StudentService studentService = new StudentService();
 		int pageNumber = Integer.valueOf(request.getParameter("number"));
 		int start  = (pageNumber * 10) - 9;
@@ -174,10 +171,10 @@ public class StudentController {
 			int count = studentService.countStudent();
 			request.setAttribute("count", count);
 			request.setAttribute("listStudent", listStudent);
-			return "students";
+			return new ModelAndView("students");
 		} catch(Exception ex) {
 			log.info(ex);
 		}
-		return "students";
+		return new ModelAndView("students");
 	}
 }

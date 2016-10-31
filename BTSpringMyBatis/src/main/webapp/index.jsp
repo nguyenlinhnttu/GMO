@@ -9,6 +9,7 @@
 			<div class ='wrapper'>
 				<div id ='header'> 
 					<h1>Manager Student</h1>
+					${message}
 				</div>	
 				<%@ include file="/resources/fragment/_menu.jsp"%>	
 			</div>

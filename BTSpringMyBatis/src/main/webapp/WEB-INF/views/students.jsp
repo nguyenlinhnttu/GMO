@@ -5,16 +5,16 @@
 <html>
 <head>
 	<link  href="/resources/css/styles.css" type="text/css" rel="stylesheet" >
-	<title>Danh sách sinh viên</title>
+	<title>List Student</title>
 </head>
 <body>
-	<div class='wrapper'>
+	<div class='wrapper'>	
 		<div id='header'>
 			<h1>LIST STUDENT</h1>
 		</div>
 		<%@ include file="/resources/fragment/_menu.jsp"%>
 		<div id='content'>
-		<p>${message}</p>
+		${message}
 			<table id ="studentstable">
 				<tr>
 					<th>ID</th>

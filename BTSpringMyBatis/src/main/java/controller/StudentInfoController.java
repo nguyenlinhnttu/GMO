@@ -23,17 +23,7 @@ import service.StudentInfoService;
 public class StudentInfoController {
 	
 	static Log log = LogFactory.getLog(StudentInfoController.class.getName());
-	// Get detail Student with Student_ID
-	@RequestMapping(value = "/viewdetail", method = RequestMethod.GET)
-	public String getDetailInfo(HttpServletRequest request, HttpServletResponse response) {
-		StudentInfoService service = new StudentInfoService();
-		int student_ID = Integer.parseInt(request.getParameter("studentID"));
-		StudentInfo object = service.getInfoByID(student_ID);
-		System.out.print(object);
-		request.setAttribute("student", object);
-		log.info("Get info student with ID: " + student_ID);
-		return "detailstudent";
-	}
+	
 	// Update info if exits and Insert If not exits
 	@RequestMapping(value = "/updateinfostudent", method = RequestMethod.POST)
 	public ModelAndView updateinfostudent(HttpServletRequest request, HttpServletResponse response) throws IOException {
